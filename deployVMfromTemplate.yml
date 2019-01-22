@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+   - name: Create Resource from Template
+     azure_rm_deployment:
+      state: present
+      resource_group_name: TemplateDeployment
+      parameters:
+       adminUsername:
+        value: sandeep
+       adminPassword:
+        value: novell@12345
+       dnsLabelPrefix:
+        value: testdns
+      template_link: /home/templates/simple_VM_linux.json

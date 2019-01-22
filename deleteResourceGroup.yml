@@ -1,0 +1,8 @@
+- name: Delete Azure resource group
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: Delete resource group
+    azure_rm_resourcegroup:
+      name: myResourceGroup
+      state: absent
