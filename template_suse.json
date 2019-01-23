@@ -121,7 +121,7 @@
             ],
             "properties": {
                 "hardwareProfile": {
-                    "vmSize": "Standard_D1"
+                    "vmSize": "Standard_A2_v2"
                 },
                 "osProfile": {
                     "computerName": "[variables('vmName')]",
@@ -142,7 +142,7 @@
                     },
                     "dataDisks": [
                         {
-                            "diskSizeGB": 100,
+                            "diskSizeGB": 40,
                             "lun": 0,
                             "name": "[concat(variables('vmName'),'_DataDisk1')]",
                             "createOption": "Empty"
@@ -170,11 +170,6 @@
             "type": "string",
             "value": "[reference(variables('publicIPAddressName')).dnsSettings.fqdn]"
         },
-		"publicIPAddress":{
-			"type": "string",
-			"value": "[reference(variables('publicIPAddressName'))]"
-		
-		},
         "sshCommand": {
             "type": "string",
             "value": "[concat('ssh ', parameters('adminUsername'), '@', reference(variables('publicIPAddressName')).dnsSettings.fqdn)]"
